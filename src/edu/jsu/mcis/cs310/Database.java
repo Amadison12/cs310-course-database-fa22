@@ -24,7 +24,15 @@ public class Database {
         
         String result = null;
         
-        // INSERT YOUR CODE HERE
+        String query = "SELECT * FROM registration R inner join section S where termId="+termid+" and subjectId= ' "+ subjected + " ' and num= ' " + num + " ' " ;
+
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        ResultSet rst = statement.execute();
+
+        result = JSONValue.toJSONString(rst);
+  
+       
         
         return result;
         
@@ -34,7 +42,12 @@ public class Database {
         
         int result = 0;
         
-        // INSERT YOUR CODE HERE
+        String query = " INSERT INTO registration (studentId, termId, crn)
+        VALUES ( " +  studentid + " , " + termid + "  , " + crn + " ) " ;
+
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        int result = statement.execute();
         
         return result;
         
@@ -42,9 +55,14 @@ public class Database {
 
     public int drop(int studentid, int termid, int crn) {
         
-        int result = 0;
-        
-        // INSERT YOUR CODE HERE
+        int result = 0
+                
+        String query = "DELETE FROM registration WHERE studentId= "+studentid+" and termId= "+termid+"  and crnNumber= "+crn+ ;
+                
+        PreparedStatement statement = connection.prepareStatement(query);
+                
+        int result = statement.execute();
+
         
         return result;
         
@@ -54,7 +72,11 @@ public class Database {
         
         int result = 0;
         
-        // INSERT YOUR CODE HERE
+        String query = "DELETE FROM registration WHERE studentId= "+studentid+" and termId= "+termid ;
+
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        int result = statement.execute();
         
         return result;
         
@@ -64,7 +86,13 @@ public class Database {
         
         String result = null;
         
-        // INSERT YOUR CODE HERE
+       String query = "SELECT * FROM registration where termId="+termid+" and studentId= "+ studentid ;
+
+       PreparedStatement statement = connection.prepareStatement(query);
+
+       ResultSet rst = statement.execute();
+
+       result = JSONValue.toJSONString(rst);
         
         return result;
         
