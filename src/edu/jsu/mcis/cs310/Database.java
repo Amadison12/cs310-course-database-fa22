@@ -57,7 +57,7 @@ public class Database {
         
         int result = 0
                 
-        String query = "DELETE FROM registration WHERE studentId= "+studentid+" and termId= "+termid+"  and crnNumber= "+crn+ ;
+        String query = "DELETE FROM registration WHERE studentId = "+studentid+" and termId = "+termid+"  and crnNumber = "+crn+ ;
                 
         PreparedStatement statement = connection.prepareStatement(query);
                 
